@@ -8,6 +8,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
+
 
 df=pd.read_csv('crop_recommendation.csv')
 print(df.head())
@@ -45,4 +48,17 @@ print('Logistic reg Accuracy on test set: {:.2f}'.format(modelLR.score(X_test_sc
 clf = RandomForestClassifier(max_depth=5,n_estimators=100,random_state=42).fit(X_train_scaled, y_train)
 
 print('RF Accuracy on training set: {:.2f}'.format(clf.score(X_train_scaled, y_train)))
-print('RF Accuracy on test set: {:.2f}'.format(clf.score(X_test_scaled, y_test)))
+acc=clf.score(X_test_scaled, y_test)
+print('RF Accuracy on test set: {:.2f}'.format(acc))
+
+metrics = """
+RF Accuracy on test set : {:10.4f}
+
+![Confusion Matrix](plot.png)
+""".format(acc)
+with open("metrics.txt", "w") as outfile:
+    outfile.write(metrics)
+
+# Plot it
+disp = ConfusionMatrixDisplay.from_estimator(clf, X_test_scaled, y_test, normalize="true", cmap=plt.cm.Blues)
+plt.savefig("plot.png")
