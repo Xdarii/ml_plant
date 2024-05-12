@@ -19,4 +19,5 @@ jobs:
           python train_mdl_recom.py
 
           # Create CML report
-          cml comment create --pr --publish metrics.txt
+          cat metrics.txt >> report.md
+          cml comment create report.md
