@@ -58,7 +58,8 @@ RF Accuracy on test set : {:10.4f}
 """.format(acc)
 with open("metrics.txt", "w") as outfile:
     outfile.write(metrics)
-
+print("saving metrics.txt done")
 # Plot it
 disp = ConfusionMatrixDisplay.from_estimator(clf, X_test_scaled, y_test, normalize="true", cmap=plt.cm.Blues)
 plt.savefig("plot.png")
+print("saving plot done")
