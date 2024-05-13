@@ -53,8 +53,6 @@ print('RF Accuracy on test set: {:.2f}'.format(acc))
 
 metrics = """
 RF Accuracy on test set : {:10.4f}
-
-![Confusion Matrix](plot.png)
 """.format(acc)
 with open("metrics.txt", "w") as outfile:
     outfile.write(metrics)
