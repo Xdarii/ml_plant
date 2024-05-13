@@ -45,7 +45,7 @@ print('Logistic reg Accuracy on training set: {:.2f}'.format(modelLR.score(X_tra
 print('Logistic reg Accuracy on test set: {:.2f}'.format(modelLR.score(X_test_scaled, y_test)))
 
 
-clf = RandomForestClassifier(max_depth=6,n_estimators=100,random_state=42).fit(X_train_scaled, y_train)
+clf = RandomForestClassifier(max_depth=6,n_estimators=1000,random_state=42).fit(X_train_scaled, y_train)
 
 print('RF Accuracy on training set: {:.2f}'.format(clf.score(X_train_scaled, y_train)))
 acc=clf.score(X_test_scaled, y_test)
