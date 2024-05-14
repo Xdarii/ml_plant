@@ -1,4 +1,11 @@
 
-Accuracy:     0.9500
+Logistic Regression Accuracy on training set: 0.95
+Logistic Regression Accuracy on test set: 0.92
+![](./plotLR.png "Confusion Matrix LR")
+Random Forest Accuracy on training set: 1.00
+Random Forest Accuracy on test set: 0.99
+![](./plotRF.png "Confusion Matrix RF")
+XGBoost Accuracy on training set: 1.00
+XGBoost Accuracy on test set: 0.99
+![](./plotXgb.png "Confusion Matrix RF")
 
-![Confusion Matrix](plot.png)
